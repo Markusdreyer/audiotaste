@@ -16,6 +16,13 @@
 		FF40E361235F1FA000CDE31F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF40E35F235F1FA000CDE31F /* LaunchScreen.storyboard */; };
 		FF40E36C235F1FA000CDE31F /* audiotasteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40E36B235F1FA000CDE31F /* audiotasteTests.swift */; };
 		FF40E377235F1FA000CDE31F /* audiotasteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40E376235F1FA000CDE31F /* audiotasteUITests.swift */; };
+		FF40E387235F2B0900CDE31F /* ToplistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40E386235F2B0900CDE31F /* ToplistViewController.swift */; };
+		FF40E389235F322500CDE31F /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40E388235F322500CDE31F /* UITabBarController.swift */; };
+		FF48C055235F39D800D408F5 /* Toplist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF48C054235F39D800D408F5 /* Toplist.storyboard */; };
+		FF48C058235F39ED00D408F5 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF48C056235F39ED00D408F5 /* Search.storyboard */; };
+		FF48C05A235F39FE00D408F5 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF48C059235F39FE00D408F5 /* Favorites.storyboard */; };
+		FF48C05C235F3AA000D408F5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48C05B235F3AA000D408F5 /* SearchViewController.swift */; };
+		FF48C05E235F3AC300D408F5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48C05D235F3AC300D408F5 /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,13 @@
 		FF40E372235F1FA000CDE31F /* audiotasteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = audiotasteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF40E376235F1FA000CDE31F /* audiotasteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audiotasteUITests.swift; sourceTree = "<group>"; };
 		FF40E378235F1FA000CDE31F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF40E386235F2B0900CDE31F /* ToplistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToplistViewController.swift; sourceTree = "<group>"; };
+		FF40E388235F322500CDE31F /* UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
+		FF48C054235F39D800D408F5 /* Toplist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Toplist.storyboard; sourceTree = "<group>"; };
+		FF48C057235F39ED00D408F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = audiotaste/Base.lproj/Search.storyboard; sourceTree = "<group>"; };
+		FF48C059235F39FE00D408F5 /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
+		FF48C05B235F3AA000D408F5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		FF48C05D235F3AC300D408F5 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +115,9 @@
 		FF40E350235F1F9E00CDE31F /* audiotaste */ = {
 			isa = PBXGroup;
 			children = (
+				FF40E38A235F343D00CDE31F /* Storyboards */,
+				FF40E385235F204100CDE31F /* Controllers */,
+				FF40E384235F203700CDE31F /* Models */,
 				FF40E351235F1F9E00CDE31F /* AppDelegate.swift */,
 				FF40E353235F1F9E00CDE31F /* SceneDelegate.swift */,
 				FF40E355235F1F9E00CDE31F /* ViewController.swift */,
@@ -129,6 +146,34 @@
 				FF40E378235F1FA000CDE31F /* Info.plist */,
 			);
 			path = audiotasteUITests;
+			sourceTree = "<group>";
+		};
+		FF40E384235F203700CDE31F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FF40E385235F204100CDE31F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF40E386235F2B0900CDE31F /* ToplistViewController.swift */,
+				FF40E388235F322500CDE31F /* UITabBarController.swift */,
+				FF48C05B235F3AA000D408F5 /* SearchViewController.swift */,
+				FF48C05D235F3AC300D408F5 /* FavoritesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FF40E38A235F343D00CDE31F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FF48C059235F39FE00D408F5 /* Favorites.storyboard */,
+				FF48C056235F39ED00D408F5 /* Search.storyboard */,
+				FF48C054235F39D800D408F5 /* Toplist.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,9 +280,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF48C055235F39D800D408F5 /* Toplist.storyboard in Resources */,
 				FF40E361235F1FA000CDE31F /* LaunchScreen.storyboard in Resources */,
+				FF48C05A235F39FE00D408F5 /* Favorites.storyboard in Resources */,
 				FF40E35E235F1FA000CDE31F /* Assets.xcassets in Resources */,
 				FF40E359235F1F9E00CDE31F /* Main.storyboard in Resources */,
+				FF48C058235F39ED00D408F5 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +311,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF40E356235F1F9E00CDE31F /* ViewController.swift in Sources */,
+				FF48C05C235F3AA000D408F5 /* SearchViewController.swift in Sources */,
+				FF40E389235F322500CDE31F /* UITabBarController.swift in Sources */,
 				FF40E352235F1F9E00CDE31F /* AppDelegate.swift in Sources */,
+				FF40E387235F2B0900CDE31F /* ToplistViewController.swift in Sources */,
+				FF48C05E235F3AC300D408F5 /* FavoritesViewController.swift in Sources */,
 				FF40E35C235F1F9E00CDE31F /* audiotaste.xcdatamodeld in Sources */,
 				FF40E354235F1F9E00CDE31F /* SceneDelegate.swift in Sources */,
 			);
@@ -315,6 +367,14 @@
 				FF40E360235F1FA000CDE31F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FF48C056235F39ED00D408F5 /* Search.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF48C057235F39ED00D408F5 /* Base */,
+			);
+			name = Search.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
