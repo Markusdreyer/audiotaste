@@ -23,6 +23,7 @@
 		FF48C05A235F39FE00D408F5 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF48C059235F39FE00D408F5 /* Favorites.storyboard */; };
 		FF48C05C235F3AA000D408F5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48C05B235F3AA000D408F5 /* SearchViewController.swift */; };
 		FF48C05E235F3AC300D408F5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48C05D235F3AC300D408F5 /* FavoritesViewController.swift */; };
+		FF48C060235F40E600D408F5 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48C05F235F40E600D408F5 /* Album.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		FF48C059235F39FE00D408F5 /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		FF48C05B235F3AA000D408F5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FF48C05D235F3AC300D408F5 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		FF48C05F235F40E600D408F5 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		FF40E384235F203700CDE31F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FF48C05F235F40E600D408F5 /* Album.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				FF40E389235F322500CDE31F /* UITabBarController.swift in Sources */,
 				FF40E352235F1F9E00CDE31F /* AppDelegate.swift in Sources */,
 				FF40E387235F2B0900CDE31F /* ToplistViewController.swift in Sources */,
+				FF48C060235F40E600D408F5 /* Album.swift in Sources */,
 				FF48C05E235F3AC300D408F5 /* FavoritesViewController.swift in Sources */,
 				FF40E35C235F1F9E00CDE31F /* audiotaste.xcdatamodeld in Sources */,
 				FF40E354235F1F9E00CDE31F /* SceneDelegate.swift in Sources */,
