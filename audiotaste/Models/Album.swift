@@ -9,6 +9,10 @@
 import Foundation
 
 struct Album: Codable {
+    var album: [AlbumData]!
+}
+
+struct AlbumData: Codable {
     var idAlbum : String!
     var idArtist : String!
     var idLabel : String!
