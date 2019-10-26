@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AMh-jP-d4S">
-                                <rect key="frame" x="87" y="274" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
@@ -25,15 +25,24 @@
                         <viewLayoutGuide key="safeArea" id="IDk-jb-6nN"/>
                     </view>
                     <navigationItem key="navigationItem" title="Toplist" id="xnv-5J-QoW">
-                        <rightBarButtonItems>
-                            <barButtonItem image="list.bullet" catalog="system" id="1YB-wv-f3g"/>
-                            <barButtonItem title="Item" image="rectangle.grid.2x2" catalog="system" id="k4i-WE-vE8"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="7Cv-UL-Pip">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="db0-cv-q1e">
+                                <rect key="frame" x="302" y="5.5" width="92" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="" image="list.bullet" catalog="system"/>
+                                    <segment title="" image="square.grid.2x2" catalog="system"/>
+                                </segments>
+                            </segmentedControl>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mostLovedAlbumsTableView" destination="AMh-jP-d4S" id="sEh-YZ-2Se"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vv5-Ax-Eh8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-829" y="-313"/>
+            <point key="canvasLocation" x="-830.43478260869574" y="-313.39285714285711"/>
         </scene>
         <!--Toplist-->
         <scene sceneID="aaq-gc-cgw">
@@ -54,26 +63,10 @@
             </objects>
             <point key="canvasLocation" x="-1610.144927536232" y="-313.39285714285711"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="XoR-ST-aeF">
-            <objects>
-                <viewController id="uej-CL-iXg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="upN-rX-VW5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="PNu-mw-pKp"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Mce-SV-V3W"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Afo-ZG-lMS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-41" y="-313"/>
-        </scene>
     </scenes>
     <resources>
         <image name="list.bullet" catalog="system" width="64" height="44"/>
         <image name="list.number" catalog="system" width="64" height="48"/>
-        <image name="rectangle.grid.2x2" catalog="system" width="64" height="48"/>
+        <image name="square.grid.2x2" catalog="system" width="64" height="56"/>
     </resources>
 </document>

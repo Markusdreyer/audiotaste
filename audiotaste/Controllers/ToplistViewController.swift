@@ -9,36 +9,59 @@
 import Foundation
 import UIKit
 
-class ToplistViewController: UIViewController {
+class ToplistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    override func viewWillAppear(_ animated: Bool) {
-        fetchAlbum()
+    @IBOutlet weak var mostLovedAlbumsTableView: UITableView!
+    var mostLovedAlbums: [AlbumData] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchMostLovedAlbums()
+        
+        mostLovedAlbumsTableView.dataSource = self
+        mostLovedAlbumsTableView.delegate = self
+        
+        mostLovedAlbumsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "albumCell")
+        
     }
     
-    func fetchAlbum() {
-        
+    func fetchMostLovedAlbums() {
         let urlSession = URLSession.shared
         let url = URL.init(string:
-            "https://theaudiodb.com/api/v1/json/1/searchalbum.php?a=Homework")!
+            "https://theaudiodb.com/api/v1/json/1/mostloved.php?format=album")!
         
         let task = urlSession.dataTask(with: url) { (data, response, error) in
                    
             if let data = data {
-                let responseString = String.init(data: data, encoding: String.Encoding.utf8)
+                _ = String.init(data: data, encoding: String.Encoding.utf8)
                        
                 let decoder = JSONDecoder.init()
                        
-                let albumObject = try! decoder.decode(Album.self, from: data)
+                let mostLovedAlbumsResponse = try! decoder.decode(MostLoved.self, from: data)
                 
-                //print(responseString)
-                print(albumObject.album[0].idAlbum!) //wtf.............
-                
+                for album in mostLovedAlbumsResponse.loved {
+                    self.mostLovedAlbums.append(album)
+                }
+            
             } else if let error = error {
                 print(error)
             }
         }
         task.resume()
         
-    
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mostLovedAlbums.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell", for: indexPath)
+        
+        cell.textLabel?.text = "1"
+        print(mostLovedAlbums[indexPath.row].strAlbumStripped)
+        return cell
+        
+    }
+
 }

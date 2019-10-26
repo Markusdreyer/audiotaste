@@ -17,7 +17,6 @@
 		FF40E36C235F1FA000CDE31F /* audiotasteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40E36B235F1FA000CDE31F /* audiotasteTests.swift */; };
 		FF40E377235F1FA000CDE31F /* audiotasteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40E376235F1FA000CDE31F /* audiotasteUITests.swift */; };
 		FF40E387235F2B0900CDE31F /* ToplistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40E386235F2B0900CDE31F /* ToplistViewController.swift */; };
-		FF40E389235F322500CDE31F /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40E388235F322500CDE31F /* UITabBarController.swift */; };
 		FF48C055235F39D800D408F5 /* Toplist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF48C054235F39D800D408F5 /* Toplist.storyboard */; };
 		FF48C058235F39ED00D408F5 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF48C056235F39ED00D408F5 /* Search.storyboard */; };
 		FF48C05A235F39FE00D408F5 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF48C059235F39FE00D408F5 /* Favorites.storyboard */; };
@@ -60,7 +59,6 @@
 		FF40E376235F1FA000CDE31F /* audiotasteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audiotasteUITests.swift; sourceTree = "<group>"; };
 		FF40E378235F1FA000CDE31F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF40E386235F2B0900CDE31F /* ToplistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToplistViewController.swift; sourceTree = "<group>"; };
-		FF40E388235F322500CDE31F /* UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
 		FF48C054235F39D800D408F5 /* Toplist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Toplist.storyboard; sourceTree = "<group>"; };
 		FF48C057235F39ED00D408F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = audiotaste/Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		FF48C059235F39FE00D408F5 /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				FF40E386235F2B0900CDE31F /* ToplistViewController.swift */,
-				FF40E388235F322500CDE31F /* UITabBarController.swift */,
 				FF48C05B235F3AA000D408F5 /* SearchViewController.swift */,
 				FF48C05D235F3AC300D408F5 /* FavoritesViewController.swift */,
 			);
@@ -315,7 +312,6 @@
 			files = (
 				FF40E356235F1F9E00CDE31F /* ViewController.swift in Sources */,
 				FF48C05C235F3AA000D408F5 /* SearchViewController.swift in Sources */,
-				FF40E389235F322500CDE31F /* UITabBarController.swift in Sources */,
 				FF40E352235F1F9E00CDE31F /* AppDelegate.swift in Sources */,
 				FF40E387235F2B0900CDE31F /* ToplistViewController.swift in Sources */,
 				FF48C060235F40E600D408F5 /* Album.swift in Sources */,
@@ -503,6 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TK22VJZW8N;
 				INFOPLIST_FILE = audiotaste/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,6 +517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TK22VJZW8N;
 				INFOPLIST_FILE = audiotaste/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
