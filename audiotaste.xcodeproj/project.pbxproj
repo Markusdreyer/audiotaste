@@ -23,6 +23,7 @@
 		FF48C05C235F3AA000D408F5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48C05B235F3AA000D408F5 /* SearchViewController.swift */; };
 		FF48C05E235F3AC300D408F5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48C05D235F3AC300D408F5 /* FavoritesViewController.swift */; };
 		FF48C060235F40E600D408F5 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF48C05F235F40E600D408F5 /* Album.swift */; };
+		FFAC3D1B2365D2A500F56685 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC3D1A2365D2A500F56685 /* AlbumTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		FF48C05B235F3AA000D408F5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FF48C05D235F3AC300D408F5 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		FF48C05F235F40E600D408F5 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		FFAC3D1A2365D2A500F56685 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		FF40E350235F1F9E00CDE31F /* audiotaste */ = {
 			isa = PBXGroup;
 			children = (
+				FFAC3D192365D28F00F56685 /* Cells */,
 				FF40E38A235F343D00CDE31F /* Storyboards */,
 				FF40E385235F204100CDE31F /* Controllers */,
 				FF40E384235F203700CDE31F /* Models */,
@@ -174,6 +177,14 @@
 				FF48C054235F39D800D408F5 /* Toplist.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FFAC3D192365D28F00F56685 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FFAC3D1A2365D2A500F56685 /* AlbumTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +326,7 @@
 				FF40E352235F1F9E00CDE31F /* AppDelegate.swift in Sources */,
 				FF40E387235F2B0900CDE31F /* ToplistViewController.swift in Sources */,
 				FF48C060235F40E600D408F5 /* Album.swift in Sources */,
+				FFAC3D1B2365D2A500F56685 /* AlbumTableViewCell.swift in Sources */,
 				FF48C05E235F3AC300D408F5 /* FavoritesViewController.swift in Sources */,
 				FF40E35C235F1F9E00CDE31F /* audiotaste.xcdatamodeld in Sources */,
 				FF40E354235F1F9E00CDE31F /* SceneDelegate.swift in Sources */,

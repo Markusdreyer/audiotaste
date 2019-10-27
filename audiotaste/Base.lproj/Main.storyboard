@@ -9,7 +9,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ReM-8l-gZA">
             <objects>
-                <tabBarController id="bwP-Ix-wNK" customClass="TabBarController" customModule="audiotaste" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="bwP-Ix-wNK" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cCl-ah-HrN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
