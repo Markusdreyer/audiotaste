@@ -10,66 +10,70 @@ import Foundation
 import UIKit
 
 class ToplistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var mostLovedAlbumsTableView: UITableView!
+    @IBOutlet weak var viewSelectorButton: UISegmentedControl!
     var mostLovedAlbums: [AlbumData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchMostLovedAlbums()
-        
-        print("Helloo")
-        
+        mostLovedAlbumsTableView.reloadData()
+        viewSelectorButton.addTarget(self, action: #selector(self.changedViewListener(_:)), for: .valueChanged)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print(mostLovedAlbums[indexPath.row].strAlbumStripped!)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return mostLovedAlbums.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let album = mostLovedAlbums[indexPath.row]
+        let album = mostLovedAlbums[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell", for: indexPath) as! AlbumTableViewCell
         
-        //cell.albumLabel.text = album.strAlbumStripped
-        //cell.artistLabel.text = album.strArtist
-        //cell.albumImageView.image = UIImage(named: album.strAlbumThumb!)
-        
-        cell.albumLabel.text = "Album title"
-        cell.artistLabel.text = "Artist name"
-        //cell.albumImageView.image = UIImage(named: album.strAlbumThumb!)
-        
-        print("fjgeirg")
-        
+        cell.albumLabel.text = album.strAlbumStripped
+        cell.artistLabel.text = album.strArtist
+        cell.albumImageView.image = UIImage(named: album.strAlbumThumb!)
         return cell
     }
-    
-    
     
     func fetchMostLovedAlbums() {
         let urlSession = URLSession.shared
         let url = URL.init(string:
             "https://theaudiodb.com/api/v1/json/1/mostloved.php?format=album")!
-        
         let task = urlSession.dataTask(with: url) { (data, response, error) in
-                   
             if let data = data {
                 _ = String.init(data: data, encoding: String.Encoding.utf8)
-                       
                 let decoder = JSONDecoder.init()
-                       
                 let mostLovedAlbumsResponse = try! decoder.decode(MostLoved.self, from: data)
-                
                 for album in mostLovedAlbumsResponse.loved {
                     self.mostLovedAlbums.append(album)
                 }
-                
-            
+                DispatchQueue.main.async {
+                    self.mostLovedAlbumsTableView.reloadData()
+                }
             } else if let error = error {
                 print(error)
             }
         }
         task.resume()
-        
     }
     
+    @objc
+    func changedViewListener(_ sender: UISegmentedControl) {
+        if(viewSelectorButton.selectedSegmentIndex == 0) {
+            mostLovedAlbumsTableView.isHidden = false
+        } else {
+            mostLovedAlbumsTableView.isHidden = true
+        }
+    }
     
 
 }
