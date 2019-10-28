@@ -30,9 +30,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let album = mostLovedAlbums[indexPath.row]
         segueData = album.idAlbum
-        self.performSegue(withIdentifier: "detailViewSegue", sender: self)
-
-        print(mostLovedAlbums[indexPath.row].strAlbumStripped!)
+        performSegue(withIdentifier: "detailViewSegue", sender: self)
     }
     
     
@@ -86,6 +84,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailViewController = segue.destination as! DetailViewController
+        print("segueData:: ",segueData)
          detailViewController.albumData = segueData
     }
     
