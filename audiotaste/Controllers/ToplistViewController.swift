@@ -29,7 +29,9 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         
         let album = mostLovedAlbums[indexPath.row]
-        segueData = album.idAlbum
+        
+        print("ALBUMID:: ", album.idAlbum)
+        self.segueData = album.idAlbum
         performSegue(withIdentifier: "detailViewSegue", sender: self)
     }
     
@@ -65,7 +67,6 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
                 DispatchQueue.main.async {
                     self.mostLovedAlbumsTableView.reloadData()
                 }
-                print(self.mostLovedAlbums)
             } else if let error = error {
                 print(error)
             }
@@ -84,7 +85,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailViewController = segue.destination as! DetailViewController
-        print("segueData:: ",segueData)
+        print("segueData:: ", segueData)
          detailViewController.albumData = segueData
     }
     

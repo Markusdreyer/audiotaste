@@ -51,7 +51,6 @@
                                             <outlet property="albumImageView" destination="QxG-oF-fQ9" id="Bvn-3B-8I2"/>
                                             <outlet property="albumLabel" destination="HsZ-HF-nCb" id="MWX-op-pki"/>
                                             <outlet property="artistLabel" destination="7sB-RF-QfI" id="w7X-5S-4mY"/>
-                                            <segue destination="uft-Zh-vhJ" kind="showDetail" identifier="detailViewSegue" id="HZS-RD-G9q"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -79,6 +78,7 @@
                     <connections>
                         <outlet property="mostLovedAlbumsTableView" destination="oGf-3Z-sNH" id="vhu-Rl-ixj"/>
                         <outlet property="viewSelectorButton" destination="db0-cv-q1e" id="Smm-gZ-DVq"/>
+                        <segue destination="uft-Zh-vhJ" kind="showDetail" identifier="detailViewSegue" id="Cer-dD-iQA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vv5-Ax-Eh8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
