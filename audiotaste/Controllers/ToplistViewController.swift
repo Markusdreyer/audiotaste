@@ -38,9 +38,12 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
         let album = mostLovedAlbums[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell", for: indexPath) as! AlbumTableViewCell
         
+        let imageUrl = URL(string: album.strAlbumThumb!)
+        let data = try? Data(contentsOf: imageUrl!)
+        
         cell.albumLabel.text = album.strAlbumStripped
         cell.artistLabel.text = album.strArtist
-        cell.albumImageView.image = UIImage(named: album.strAlbumThumb!)
+        cell.albumImageView.image = UIImage(data: data!)
         return cell
     }
     
