@@ -13,12 +13,11 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var mostLovedAlbumsTableView: UITableView!
     @IBOutlet weak var viewSelectorButton: UISegmentedControl!
     var mostLovedAlbums: [AlbumData] = []
-    var segueData: AlbumData!
+    var segueData: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchMostLovedAlbums()
-        mostLovedAlbumsTableView.reloadData()
         viewSelectorButton.addTarget(self, action: #selector(self.changedViewListener(_:)), for: .valueChanged)
     }
     
@@ -26,18 +25,15 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
         return 100
     }
     
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let album = mostLovedAlbums[indexPath.row]
-        segueData = album
+        segueData = album.idAlbum
         self.performSegue(withIdentifier: "detailViewSegue", sender: self)
 
         print(mostLovedAlbums[indexPath.row].strAlbumStripped!)
     }
-    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,14 +42,13 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let album = mostLovedAlbums[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "albumCell", for: indexPath) as! AlbumTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "toplistTableViewCell", for: indexPath) as! AlbumTableViewCell
         
         let imageUrl = URL(string: album.strAlbumThumb!)
-        let data = try? Data(contentsOf: imageUrl!)
-        
+       
         cell.albumLabel.text = album.strAlbumStripped
         cell.artistLabel.text = album.strArtist
-        cell.albumImageView.image = UIImage(data: data!)
+        cell.albumImageView.load(url: imageUrl!)
         return cell
     }
     
@@ -72,6 +67,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
                 DispatchQueue.main.async {
                     self.mostLovedAlbumsTableView.reloadData()
                 }
+                print(self.mostLovedAlbums)
             } else if let error = error {
                 print(error)
             }
@@ -89,11 +85,25 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        // get a reference to the second view controller
         let detailViewController = segue.destination as! DetailViewController
-
-        // set a variable in the second view controller with the data to pass
-        detailViewController.receivedData = segueData
+         detailViewController.albumData = segueData
     }
+    
 }
+
+//Encountered sever lag with tableview when fetching images. The following snippet solved this issue.
+//https://www.hackingwithswift.com/example-code/uikit/how-to-load-a-remote-image-url-into-uiimageview
+
+extension UIImageView {
+       func load(url: URL) {
+           DispatchQueue.global().async { [weak self] in
+               if let data = try? Data(contentsOf: url) {
+                   if let image = UIImage(data: data) {
+                       DispatchQueue.main.async {
+                           self?.image = image
+                       }
+                   }
+               }
+           }
+       }
+   }

@@ -11,11 +11,20 @@ import Foundation
 import UIKit
 
 class DetailViewController: UIViewController {
-    var receivedData: AlbumData!
+    @IBOutlet weak var artistName: UILabel!
+    @IBOutlet weak var albumTitle: UILabel!
+    @IBOutlet weak var albumImage: UIImageView!
+    var albumData: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(receivedData)
+        
+        //let imageUrl = URL(string: albumData.strAlbumThumb!)
+        //let data = try? Data(contentsOf: imageUrl!)
+        
+        //albumImage.image = UIImage(data: data!)
+        albumTitle.text = albumData
+        //artistName.text = albumData.strArtist
+        print(albumData)
     }
 }
