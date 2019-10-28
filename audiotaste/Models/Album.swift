@@ -18,17 +18,8 @@ struct MostLoved: Codable {
 
 struct AlbumData: Codable {
     var idAlbum : String?
-    var idArtist : String?
-    var idLabel : String?
-    var intLoved : String?
-    var intSales : String?
-    var intScore : String?
-    var intScoreVotes : String?
-    var intYearReleased : String?
-    var strAlbum : String?
     var strAlbumStripped : String?
     var strAlbumThumb : String?
     var strArtist : String?
-    var strDescriptionEN : String?
 }
 

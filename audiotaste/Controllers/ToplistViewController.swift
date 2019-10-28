@@ -13,6 +13,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var mostLovedAlbumsTableView: UITableView!
     @IBOutlet weak var viewSelectorButton: UISegmentedControl!
     var mostLovedAlbums: [AlbumData] = []
+    var segueData: AlbumData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +23,22 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 100
     }
+    
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let album = mostLovedAlbums[indexPath.row]
+        segueData = album
+        self.performSegue(withIdentifier: "detailViewSegue", sender: self)
+
         print(mostLovedAlbums[indexPath.row].strAlbumStripped!)
     }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mostLovedAlbums.count
@@ -78,5 +88,12 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+        // get a reference to the second view controller
+        let detailViewController = segue.destination as! DetailViewController
+
+        // set a variable in the second view controller with the data to pass
+        detailViewController.receivedData = segueData
+    }
 }
