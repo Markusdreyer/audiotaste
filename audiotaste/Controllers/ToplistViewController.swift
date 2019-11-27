@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class ToplistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var mostLovedAlbumsTableView: UITableView!
@@ -40,6 +41,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
         return mostLovedAlbums.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let album = mostLovedAlbums[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "toplistTableViewCell", for: indexPath) as! AlbumTableViewCell
@@ -48,7 +50,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
        
         cell.albumLabel.text = album.strAlbumStripped
         cell.artistLabel.text = album.strArtist
-        cell.albumImageView.load(url: imageUrl!)
+        cell.albumImageView.kf.setImage(with: imageUrl)
         return cell
     }
     
@@ -91,19 +93,3 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     
 }
 
-//Encountered sever lag with tableview when fetching images. The following snippet solved this issue.
-//https://www.hackingwithswift.com/example-code/uikit/how-to-load-a-remote-image-url-into-uiimageview
-
-extension UIImageView {
-       func load(url: URL) {
-           DispatchQueue.global().async { [weak self] in
-               if let data = try? Data(contentsOf: url) {
-                   if let image = UIImage(data: data) {
-                       DispatchQueue.main.async {
-                           self?.image = image
-                       }
-                   }
-               }
-           }
-       }
-   }

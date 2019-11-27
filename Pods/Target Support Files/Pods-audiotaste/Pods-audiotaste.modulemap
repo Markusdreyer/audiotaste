@@ -1,0 +1,6 @@
+framework module Pods_audiotaste {
+  umbrella header "Pods-audiotaste-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		179F6AAEAD39466F82BA9071 /* Pods_audiotaste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B1B25A8032C38386F6D749 /* Pods_audiotaste.framework */; };
+		9DFC8F725BFFD06433CE9CB7 /* Pods_audiotaste_audiotasteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89D8E6C6ED3509317BB8113 /* Pods_audiotaste_audiotasteUITests.framework */; };
+		CD3085DF49D007990C7DCBD3 /* Pods_audiotasteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533BB6631CDE62D217D46E06 /* Pods_audiotasteTests.framework */; };
 		FF40E352235F1F9E00CDE31F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40E351235F1F9E00CDE31F /* AppDelegate.swift */; };
 		FF40E354235F1F9E00CDE31F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40E353235F1F9E00CDE31F /* SceneDelegate.swift */; };
 		FF40E356235F1F9E00CDE31F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40E355235F1F9E00CDE31F /* ViewController.swift */; };
@@ -46,6 +49,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04CC3993D645DD1D3AA9B815 /* Pods-audiotaste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotaste.release.xcconfig"; path = "Target Support Files/Pods-audiotaste/Pods-audiotaste.release.xcconfig"; sourceTree = "<group>"; };
+		1B43BAAC14F109256CA87500 /* Pods-audiotaste-audiotasteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotaste-audiotasteUITests.debug.xcconfig"; path = "Target Support Files/Pods-audiotaste-audiotasteUITests/Pods-audiotaste-audiotasteUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		533BB6631CDE62D217D46E06 /* Pods_audiotasteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_audiotasteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62DFBCB8400D91D51A3EF057 /* Pods-audiotasteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotasteTests.release.xcconfig"; path = "Target Support Files/Pods-audiotasteTests/Pods-audiotasteTests.release.xcconfig"; sourceTree = "<group>"; };
+		6B32315AEE9223D016E41A07 /* Pods-audiotaste.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotaste.debug.xcconfig"; path = "Target Support Files/Pods-audiotaste/Pods-audiotaste.debug.xcconfig"; sourceTree = "<group>"; };
+		71C7F9BB2CCF457F06CFFB10 /* Pods-audiotasteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotasteTests.debug.xcconfig"; path = "Target Support Files/Pods-audiotasteTests/Pods-audiotasteTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C89D8E6C6ED3509317BB8113 /* Pods_audiotaste_audiotasteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_audiotaste_audiotasteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD68BC309F663B5917360C0E /* Pods-audiotaste-audiotasteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotaste-audiotasteUITests.release.xcconfig"; path = "Target Support Files/Pods-audiotaste-audiotasteUITests/Pods-audiotaste-audiotasteUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E9B1B25A8032C38386F6D749 /* Pods_audiotaste.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_audiotaste.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF40E34E235F1F9E00CDE31F /* audiotaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = audiotaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF40E351235F1F9E00CDE31F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF40E353235F1F9E00CDE31F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				179F6AAEAD39466F82BA9071 /* Pods_audiotaste.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD3085DF49D007990C7DCBD3 /* Pods_audiotasteTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,12 +106,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DFC8F725BFFD06433CE9CB7 /* Pods_audiotaste_audiotasteUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		609B72D0E26082ABC761195D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6B32315AEE9223D016E41A07 /* Pods-audiotaste.debug.xcconfig */,
+				04CC3993D645DD1D3AA9B815 /* Pods-audiotaste.release.xcconfig */,
+				1B43BAAC14F109256CA87500 /* Pods-audiotaste-audiotasteUITests.debug.xcconfig */,
+				DD68BC309F663B5917360C0E /* Pods-audiotaste-audiotasteUITests.release.xcconfig */,
+				71C7F9BB2CCF457F06CFFB10 /* Pods-audiotasteTests.debug.xcconfig */,
+				62DFBCB8400D91D51A3EF057 /* Pods-audiotasteTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7325FEBDF7C64243FCA112CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9B1B25A8032C38386F6D749 /* Pods_audiotaste.framework */,
+				C89D8E6C6ED3509317BB8113 /* Pods_audiotaste_audiotasteUITests.framework */,
+				533BB6631CDE62D217D46E06 /* Pods_audiotasteTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FF40E345235F1F9E00CDE31F = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +144,8 @@
 				FF40E36A235F1FA000CDE31F /* audiotasteTests */,
 				FF40E375235F1FA000CDE31F /* audiotasteUITests */,
 				FF40E34F235F1F9E00CDE31F /* Products */,
+				609B72D0E26082ABC761195D /* Pods */,
+				7325FEBDF7C64243FCA112CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,9 +241,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF40E37B235F1FA000CDE31F /* Build configuration list for PBXNativeTarget "audiotaste" */;
 			buildPhases = (
+				0884BB1EB202171BC6300280 /* [CP] Check Pods Manifest.lock */,
 				FF40E34A235F1F9E00CDE31F /* Sources */,
 				FF40E34B235F1F9E00CDE31F /* Frameworks */,
 				FF40E34C235F1F9E00CDE31F /* Resources */,
+				46615A49D4576A34D220E7C0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,6 +260,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF40E37E235F1FA000CDE31F /* Build configuration list for PBXNativeTarget "audiotasteTests" */;
 			buildPhases = (
+				BD2C097048540738A9B207FA /* [CP] Check Pods Manifest.lock */,
 				FF40E363235F1FA000CDE31F /* Sources */,
 				FF40E364235F1FA000CDE31F /* Frameworks */,
 				FF40E365235F1FA000CDE31F /* Resources */,
@@ -235,9 +279,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF40E381235F1FA000CDE31F /* Build configuration list for PBXNativeTarget "audiotasteUITests" */;
 			buildPhases = (
+				B84B09029AF49B0F90ED7F1A /* [CP] Check Pods Manifest.lock */,
 				FF40E36E235F1FA000CDE31F /* Sources */,
 				FF40E36F235F1FA000CDE31F /* Frameworks */,
 				FF40E370235F1FA000CDE31F /* Resources */,
+				79D39A127B00448112A19AAF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,6 +367,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0884BB1EB202171BC6300280 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-audiotaste-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46615A49D4576A34D220E7C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-audiotaste/Pods-audiotaste-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-audiotaste/Pods-audiotaste-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-audiotaste/Pods-audiotaste-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79D39A127B00448112A19AAF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-audiotaste-audiotasteUITests/Pods-audiotaste-audiotasteUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-audiotaste-audiotasteUITests/Pods-audiotaste-audiotasteUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-audiotaste-audiotasteUITests/Pods-audiotaste-audiotasteUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B84B09029AF49B0F90ED7F1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-audiotaste-audiotasteUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD2C097048540738A9B207FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-audiotasteTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FF40E34A235F1F9E00CDE31F /* Sources */ = {
@@ -516,6 +665,7 @@
 		};
 		FF40E37C235F1FA000CDE31F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B32315AEE9223D016E41A07 /* Pods-audiotaste.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -534,6 +684,7 @@
 		};
 		FF40E37D235F1FA000CDE31F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04CC3993D645DD1D3AA9B815 /* Pods-audiotaste.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -552,6 +703,7 @@
 		};
 		FF40E37F235F1FA000CDE31F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71C7F9BB2CCF457F06CFFB10 /* Pods-audiotasteTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -573,6 +725,7 @@
 		};
 		FF40E380235F1FA000CDE31F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62DFBCB8400D91D51A3EF057 /* Pods-audiotasteTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -594,6 +747,7 @@
 		};
 		FF40E382235F1FA000CDE31F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B43BAAC14F109256CA87500 /* Pods-audiotaste-audiotasteUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -613,6 +767,7 @@
 		};
 		FF40E383235F1FA000CDE31F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD68BC309F663B5917360C0E /* Pods-audiotaste-audiotasteUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
