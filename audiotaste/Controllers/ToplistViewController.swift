@@ -14,11 +14,12 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var mostLovedAlbumsTableView: UITableView!
     @IBOutlet weak var viewSelectorButton: UISegmentedControl!
     var mostLovedAlbums: [AlbumData] = []
-    var segueData: String!
+    var segueData: AlbumData!
+    var request = APIRequest()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchMostLovedAlbums()
+        populateTableView()
         viewSelectorButton.addTarget(self, action: #selector(self.changedViewListener(_:)), for: .valueChanged)
     }
     
@@ -31,8 +32,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let album = mostLovedAlbums[indexPath.row]
         
-        print("ALBUMID:: ", album.idAlbum)
-        self.segueData = album.idAlbum
+        self.segueData = album
         performSegue(withIdentifier: "detailViewSegue", sender: self)
     }
     
@@ -54,26 +54,17 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-    func fetchMostLovedAlbums() {
-        let urlSession = URLSession.shared
-        let url = URL.init(string:
-            "https://theaudiodb.com/api/v1/json/1/mostloved.php?format=album")!
-        let task = urlSession.dataTask(with: url) { (data, response, error) in
-            if let data = data {
-                _ = String.init(data: data, encoding: String.Encoding.utf8)
-                let decoder = JSONDecoder.init()
-                let mostLovedAlbumsResponse = try! decoder.decode(MostLoved.self, from: data)
-                for album in mostLovedAlbumsResponse.loved {
-                    self.mostLovedAlbums.append(album)
-                }
-                DispatchQueue.main.async {
-                    self.mostLovedAlbumsTableView.reloadData()
-                }
-            } else if let error = error {
-                print(error)
+    func populateTableView() {
+        request.fetch(requestUrl: "https://theaudiodb.com/api/v1/json/1/mostloved.php?format=album", completion: { (response) in
+            let decoder = JSONDecoder.init()
+            let mostLovedAlbumsResponse = try! decoder.decode(MostLoved.self, from: response!)
+            for album in mostLovedAlbumsResponse.loved {
+                self.mostLovedAlbums.append(album)
             }
-        }
-        task.resume()
+            DispatchQueue.main.async {
+                self.mostLovedAlbumsTableView.reloadData()
+            }
+        })
     }
     
     @objc
@@ -87,7 +78,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailViewController = segue.destination as! DetailViewController
-        print("segueData:: ", segueData)
+        print("segueData:: ", segueData!)
          detailViewController.albumData = segueData
     }
     
