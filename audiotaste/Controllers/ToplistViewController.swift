@@ -21,13 +21,8 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         populateAlbumData()
-        collectionView.isHidden = true
         viewSelectorButton.addTarget(self, action: #selector(self.changedViewListener(_:)), for: .valueChanged)
-        
-        //Collection view logic
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(ToplistCollectionViewCell.self, forCellWithReuseIdentifier: "toplistCollectionViewCell")
+        self.collectionView.isHidden = true
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -101,9 +96,9 @@ extension ToplistViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         let imageUrl = URL(string: album.strAlbumThumb!)
               
-        //cell.collectionAlbumLabel.text = album.strAlbumStripped
-        //cell.collectionArtistLabel.text = album.strArtist
-        //cell.collectionImageView.kf.setImage(with: imageUrl)
+        cell.collectionAlbumLabel.text = album.strAlbumStripped
+        cell.collectionArtistLabel.text = album.strArtist
+        cell.collectionImageView.kf.setImage(with: imageUrl)
         return cell
     }
 }
