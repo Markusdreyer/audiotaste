@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		15613BFC238E96C500D83534 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15613BFB238E96C500D83534 /* APIRequest.swift */; };
 		15613C00238ECC2A00D83534 /* ToplistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15613BFF238ECC2A00D83534 /* ToplistCollectionViewCell.swift */; };
+		1561EFCB2392CC0E00FBEF39 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1561EFCA2392CC0E00FBEF39 /* Track.swift */; };
 		179F6AAEAD39466F82BA9071 /* Pods_audiotaste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B1B25A8032C38386F6D749 /* Pods_audiotaste.framework */; };
 		9DFC8F725BFFD06433CE9CB7 /* Pods_audiotaste_audiotasteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89D8E6C6ED3509317BB8113 /* Pods_audiotaste_audiotasteUITests.framework */; };
 		CD3085DF49D007990C7DCBD3 /* Pods_audiotasteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533BB6631CDE62D217D46E06 /* Pods_audiotasteTests.framework */; };
@@ -54,6 +55,7 @@
 		04CC3993D645DD1D3AA9B815 /* Pods-audiotaste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotaste.release.xcconfig"; path = "Target Support Files/Pods-audiotaste/Pods-audiotaste.release.xcconfig"; sourceTree = "<group>"; };
 		15613BFB238E96C500D83534 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		15613BFF238ECC2A00D83534 /* ToplistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToplistCollectionViewCell.swift; sourceTree = "<group>"; };
+		1561EFCA2392CC0E00FBEF39 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		1B43BAAC14F109256CA87500 /* Pods-audiotaste-audiotasteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotaste-audiotasteUITests.debug.xcconfig"; path = "Target Support Files/Pods-audiotaste-audiotasteUITests/Pods-audiotaste-audiotasteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		533BB6631CDE62D217D46E06 /* Pods_audiotasteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_audiotasteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62DFBCB8400D91D51A3EF057 /* Pods-audiotasteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotasteTests.release.xcconfig"; path = "Target Support Files/Pods-audiotasteTests/Pods-audiotasteTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				FF48C05F235F40E600D408F5 /* Album.swift */,
+				1561EFCA2392CC0E00FBEF39 /* Track.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				FF40E35C235F1F9E00CDE31F /* audiotaste.xcdatamodeld in Sources */,
 				15613BFC238E96C500D83534 /* APIRequest.swift in Sources */,
 				FF40E354235F1F9E00CDE31F /* SceneDelegate.swift in Sources */,
+				1561EFCB2392CC0E00FBEF39 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var viewSelectorButton: UISegmentedControl!
-    var mostLovedAlbums: [AlbumData] = []
+    var albumData: [AlbumData] = []
     var segueData: AlbumData!
     var request = APIRequest()
     
@@ -32,7 +32,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let album = mostLovedAlbums[indexPath.row]
+        let album = albumData[indexPath.row]
         
         self.segueData = album
         performSegue(withIdentifier: "detailViewSegue", sender: self)
@@ -40,12 +40,12 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mostLovedAlbums.count
+        return albumData.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let album = mostLovedAlbums[indexPath.row]
+        let album = albumData[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "toplistTableViewCell", for: indexPath) as! ToplistTableViewCell
         
         let imageUrl = URL(string: album.strAlbumThumb!)
@@ -61,7 +61,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
             let decoder = JSONDecoder.init()
             let mostLovedAlbumsResponse = try! decoder.decode(MostLoved.self, from: response!)
             for album in mostLovedAlbumsResponse.loved {
-                self.mostLovedAlbums.append(album)
+                self.albumData.append(album)
             }
             
             DispatchQueue.main.async {
@@ -88,11 +88,11 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
 
 extension ToplistViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mostLovedAlbums.count
+        return albumData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let album = mostLovedAlbums[indexPath.row]
+        let album = albumData[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "toplistCollectionViewCell", for: indexPath) as! ToplistCollectionViewCell
         
         let imageUrl = URL(string: album.strAlbumThumb!)
@@ -104,7 +104,7 @@ extension ToplistViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        
-        let album = mostLovedAlbums[indexPath.row]
+        let album = albumData[indexPath.row]
         
         self.segueData = album
         performSegue(withIdentifier: "detailViewSegue", sender: self)

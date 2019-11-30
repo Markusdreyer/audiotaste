@@ -8,10 +8,6 @@
 
 import Foundation
 
-struct Album: Codable {
-    var album: [AlbumData]!
-}
-
 struct MostLoved: Codable {
     var loved: [AlbumData]!
 }
