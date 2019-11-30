@@ -49,6 +49,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         trackData.count
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let track = trackData[indexPath.row]
