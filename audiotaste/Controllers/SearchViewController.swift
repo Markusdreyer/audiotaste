@@ -25,6 +25,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         performSearch()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+           return 100
+       }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            return albumData.count
     }
@@ -68,6 +72,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             }
         })
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailViewController = segue.destination as! DetailViewController

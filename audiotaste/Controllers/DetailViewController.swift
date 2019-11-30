@@ -23,10 +23,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         populateTrackData()
-        let imageUrl = URL(string: albumData.strAlbumThumb!)
+        if albumData.strAlbumThumb != nil {
+            let imageUrl = URL(string: albumData.strAlbumThumb!)
+            albumImage.kf.setImage(with: imageUrl)
+        }
         albumTitle.text = albumData.strAlbumStripped
         artistName.text = albumData.strArtist
-        albumImage.kf.setImage(with: imageUrl)
     }
 
     func populateTrackData() {
