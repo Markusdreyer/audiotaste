@@ -20,6 +20,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         populateAlbumData()
         viewSelectorButton.addTarget(self, action: #selector(self.changedViewListener(_:)), for: .valueChanged)
         self.collectionView.isHidden = true
@@ -46,7 +47,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let album = albumData[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "toplistTableViewCell", for: indexPath) as! ToplistTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "toplistTableViewCell", for: indexPath) as! TableViewCell
         
         let imageUrl = URL(string: album.strAlbumThumb!)
        
@@ -93,7 +94,7 @@ extension ToplistViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let album = albumData[indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "toplistCollectionViewCell", for: indexPath) as! ToplistCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "toplistCollectionViewCell", for: indexPath) as! CollectionViewCell
         
         let imageUrl = URL(string: album.strAlbumThumb!)
               

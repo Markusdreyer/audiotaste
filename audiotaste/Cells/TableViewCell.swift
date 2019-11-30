@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ToplistTableViewCell: UITableViewCell {
+class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var tableArtistLabel: UILabel!
     @IBOutlet weak var tableAlbumLabel: UILabel!

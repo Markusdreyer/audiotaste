@@ -22,6 +22,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         populateTrackData()
         if albumData.strAlbumThumb != nil {
             let imageUrl = URL(string: albumData.strAlbumThumb!)

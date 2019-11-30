@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ToplistCollectionViewCell: UICollectionViewCell {
+class CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var collectionImageView: UIImageView!
     @IBOutlet weak var collectionAlbumLabel: UILabel!
