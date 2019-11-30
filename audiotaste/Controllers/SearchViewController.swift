@@ -35,6 +35,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         performSearch()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           dismissKeyboard()
+           return false
+       }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
            return 100
        }
