@@ -12,10 +12,14 @@ struct MostLoved: Codable {
     var loved: [AlbumData]!
 }
 
+struct Album: Codable {
+    var album: [AlbumData]!
+}
+
 struct AlbumData: Codable {
-    var idAlbum : String?
-    var strAlbumStripped : String?
+    var idAlbum : String!
+    var strAlbumStripped : String!
     var strAlbumThumb : String?
-    var strArtist : String?
+    var strArtist : String!
 }
 

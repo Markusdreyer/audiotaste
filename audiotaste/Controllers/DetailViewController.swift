@@ -16,8 +16,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     var trackData: [TrackData] = []
-    var request = APIRequest()
     var albumData: AlbumData!
+    var request = APIRequest()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

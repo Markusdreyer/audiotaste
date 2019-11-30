@@ -13,7 +13,7 @@ struct Track: Codable {
 }
 
 struct TrackData: Codable {
-    var strTrack : String?
-    var intDuration : String?
+    var strTrack : String!
+    var intDuration : String!
 }
 
