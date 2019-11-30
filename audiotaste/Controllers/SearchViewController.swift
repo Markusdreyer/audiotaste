@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchInput: UITextField!
     var request = APIRequest()
@@ -20,10 +20,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         searchInput.addTarget(self, action: #selector(SearchViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-        
+        self.searchInput.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
-
+        
         view.addGestureRecognizer(tap)
     }
     
@@ -36,9 +36,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-           dismissKeyboard()
-           return false
-       }
+        self.dismissKeyboard()
+        return true
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
            return 100
