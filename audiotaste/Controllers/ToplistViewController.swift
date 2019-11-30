@@ -71,6 +71,7 @@ class ToplistViewController: UIViewController, UITableViewDataSource, UITableVie
         })
     }
     
+    
     @objc
     func changedViewListener(_ sender: UISegmentedControl) {
         tableView.isHidden = !tableView.isHidden
@@ -100,6 +101,13 @@ extension ToplistViewController: UICollectionViewDelegate, UICollectionViewDataS
         cell.collectionArtistLabel.text = album.strArtist
         cell.collectionImageView.kf.setImage(with: imageUrl)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        
+        let album = mostLovedAlbums[indexPath.row]
+        
+        self.segueData = album
+        performSegue(withIdentifier: "detailViewSegue", sender: self)
     }
 }
 
