@@ -6,49 +6,60 @@
 //  Copyright © 2019 Markus Dreyer. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import CoreData
+
 
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
-    var albumData: [AlbumData] = []
+    var trackData: [TrackData] = []
     var segueData: AlbumData!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.fetchFavorites()
+    }
+    
+    func fetchFavorites() {
+        let moc = (UIApplication.shared.delegate as?
+        AppDelegate)!.persistentContainer.viewContext
         
+        let fetchRequest = NSFetchRequest<Favorites_Track>(entityName: "Favorites_Track")
+        let favoriteTracks = try! moc.fetch(fetchRequest)
+        for favoriteTrack in favoriteTracks {
+            var track = TrackData()
+            track.strTrack = favoriteTrack.strTrack
+            track.strArtist = favoriteTrack.strArtist
+            track.intDuration = favoriteTrack.intDuration
+            trackData.append(track)
+        }
     }
 
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 70 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    
-        let album = albumData[indexPath.row]
-    
-        self.segueData = album
-        performSegue(withIdentifier: "detailViewSegue", sender: self)
     }
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return albumData.count
+        return trackData.count
     }
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let album = albumData[indexPath.row]
-    let cell = tableView.dequeueReusableCell(withIdentifier: "toplistTableViewCell", for: indexPath) as! TableViewCell
-    
-    let imageUrl = URL(string: album.strAlbumThumb!)
-   
-    cell.tableAlbumLabel.text = album.strAlbumStripped
-    cell.tableArtistLabel.text = album.strArtist
-    cell.tableAlbumImageView.kf.setImage(with: imageUrl)
-    return cell
+        let track = trackData[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favoritesTableViewCell", for: indexPath) as! FavoritesTableViewCell
+        
+        let duration = Int(track.intDuration!)
+        
+        cell.artistLabel.text = track.strArtist
+        cell.trackLabel.text = track.strTrack
+        cell.runningTime.text = duration!.formatTime.minuteSeconds
+        return cell
     }
 }

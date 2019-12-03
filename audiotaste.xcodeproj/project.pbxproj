@@ -13,6 +13,7 @@
 		157D4C2A239684CB00278869 /* Favorites_Track+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157D4C28239684CB00278869 /* Favorites_Track+CoreDataClass.swift */; };
 		157D4C2B239684CB00278869 /* Favorites_Track+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157D4C29239684CB00278869 /* Favorites_Track+CoreDataProperties.swift */; };
 		157D4C2D2396B16B00278869 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 157D4C2C2396B16B00278869 /* Favorites.storyboard */; };
+		157D4C302396D4A400278869 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157D4C2F2396D4A400278869 /* FavoritesTableViewCell.swift */; };
 		179F6AAEAD39466F82BA9071 /* Pods_audiotaste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B1B25A8032C38386F6D749 /* Pods_audiotaste.framework */; };
 		9DFC8F725BFFD06433CE9CB7 /* Pods_audiotaste_audiotasteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89D8E6C6ED3509317BB8113 /* Pods_audiotaste_audiotasteUITests.framework */; };
 		CD3085DF49D007990C7DCBD3 /* Pods_audiotasteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533BB6631CDE62D217D46E06 /* Pods_audiotasteTests.framework */; };
@@ -61,6 +62,7 @@
 		157D4C28239684CB00278869 /* Favorites_Track+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorites_Track+CoreDataClass.swift"; sourceTree = "<group>"; };
 		157D4C29239684CB00278869 /* Favorites_Track+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorites_Track+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		157D4C2C2396B16B00278869 /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Favorites.storyboard; path = ../../../../../.Trash/Favorites.storyboard; sourceTree = "<group>"; };
+		157D4C2F2396D4A400278869 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		1B43BAAC14F109256CA87500 /* Pods-audiotaste-audiotasteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotaste-audiotasteUITests.debug.xcconfig"; path = "Target Support Files/Pods-audiotaste-audiotasteUITests/Pods-audiotaste-audiotasteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		533BB6631CDE62D217D46E06 /* Pods_audiotasteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_audiotasteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62DFBCB8400D91D51A3EF057 /* Pods-audiotasteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotasteTests.release.xcconfig"; path = "Target Support Files/Pods-audiotasteTests/Pods-audiotasteTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				FFAC3D1A2365D2A500F56685 /* TableViewCell.swift */,
 				FFAC3D1E2367067000F56685 /* DetailViewTableViewCell.swift */,
 				15613BFF238ECC2A00D83534 /* CollectionViewCell.swift */,
+				157D4C2F2396D4A400278869 /* FavoritesTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				FFAC3D1F2367067000F56685 /* DetailViewTableViewCell.swift in Sources */,
 				FF40E35C235F1F9E00CDE31F /* audiotaste.xcdatamodeld in Sources */,
 				15613BFC238E96C500D83534 /* APIRequest.swift in Sources */,
+				157D4C302396D4A400278869 /* FavoritesTableViewCell.swift in Sources */,
 				FF40E354235F1F9E00CDE31F /* SceneDelegate.swift in Sources */,
 				1561EFCB2392CC0E00FBEF39 /* Track.swift in Sources */,
 			);
