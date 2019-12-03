@@ -8,6 +8,7 @@
 
 import Foundation
 import Kingfisher
+import CoreData
 import UIKit
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -19,7 +20,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     var albumData: AlbumData!
     var request = APIRequest()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -51,6 +51,32 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedTrack = trackData[indexPath.row]
+        let alert = UIAlertController(title: "Add To Favorites", message: "Would you like to add \(selectedTrack.strTrack!) to favorites?", preferredStyle: .alert)
+        let moc = (UIApplication.shared.delegate as?
+                        AppDelegate)!.persistentContainer.viewContext
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Favorites_Track", in: moc)!
+        
+        let favoriteTrack = Favorites_Track.init(entity: entityDescription, insertInto: moc)
+        
+        favoriteTrack.strTrack = selectedTrack.strTrack
+        favoriteTrack.strArtist = selectedTrack.strArtist
+        favoriteTrack.intDuration = selectedTrack.intDuration
+        
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (UIAlertAction) in
+            do {
+                try moc.save()
+            } catch let error {
+                print(error)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
+            print("SHOULD NOT PERSIST")
+        }))
+        
+        present(alert, animated: true)
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
        

@@ -10,6 +10,8 @@
 		15613BFC238E96C500D83534 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15613BFB238E96C500D83534 /* APIRequest.swift */; };
 		15613C00238ECC2A00D83534 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15613BFF238ECC2A00D83534 /* CollectionViewCell.swift */; };
 		1561EFCB2392CC0E00FBEF39 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1561EFCA2392CC0E00FBEF39 /* Track.swift */; };
+		157D4C2A239684CB00278869 /* Favorites_Track+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157D4C28239684CB00278869 /* Favorites_Track+CoreDataClass.swift */; };
+		157D4C2B239684CB00278869 /* Favorites_Track+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157D4C29239684CB00278869 /* Favorites_Track+CoreDataProperties.swift */; };
 		179F6AAEAD39466F82BA9071 /* Pods_audiotaste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B1B25A8032C38386F6D749 /* Pods_audiotaste.framework */; };
 		9DFC8F725BFFD06433CE9CB7 /* Pods_audiotaste_audiotasteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89D8E6C6ED3509317BB8113 /* Pods_audiotaste_audiotasteUITests.framework */; };
 		CD3085DF49D007990C7DCBD3 /* Pods_audiotasteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533BB6631CDE62D217D46E06 /* Pods_audiotasteTests.framework */; };
@@ -56,6 +58,8 @@
 		15613BFB238E96C500D83534 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		15613BFF238ECC2A00D83534 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		1561EFCA2392CC0E00FBEF39 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		157D4C28239684CB00278869 /* Favorites_Track+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorites_Track+CoreDataClass.swift"; sourceTree = "<group>"; };
+		157D4C29239684CB00278869 /* Favorites_Track+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorites_Track+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1B43BAAC14F109256CA87500 /* Pods-audiotaste-audiotasteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotaste-audiotasteUITests.debug.xcconfig"; path = "Target Support Files/Pods-audiotaste-audiotasteUITests/Pods-audiotaste-audiotasteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		533BB6631CDE62D217D46E06 /* Pods_audiotasteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_audiotasteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62DFBCB8400D91D51A3EF057 /* Pods-audiotasteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audiotasteTests.release.xcconfig"; path = "Target Support Files/Pods-audiotasteTests/Pods-audiotasteTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +131,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		157D4C212396844D00278869 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				157D4C28239684CB00278869 /* Favorites_Track+CoreDataClass.swift */,
+				157D4C29239684CB00278869 /* Favorites_Track+CoreDataProperties.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		609B72D0E26082ABC761195D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +188,7 @@
 		FF40E350235F1F9E00CDE31F /* audiotaste */ = {
 			isa = PBXGroup;
 			children = (
+				157D4C212396844D00278869 /* Core Data */,
 				15613BFA238E960900D83534 /* Networking */,
 				FFAC3D192365D28F00F56685 /* Cells */,
 				FF40E38A235F343D00CDE31F /* Storyboards */,
@@ -497,9 +511,11 @@
 				FF40E352235F1F9E00CDE31F /* AppDelegate.swift in Sources */,
 				FF40E387235F2B0900CDE31F /* ToplistViewController.swift in Sources */,
 				15613C00238ECC2A00D83534 /* CollectionViewCell.swift in Sources */,
+				157D4C2B239684CB00278869 /* Favorites_Track+CoreDataProperties.swift in Sources */,
 				FF48C060235F40E600D408F5 /* Album.swift in Sources */,
 				FFAC3D1B2365D2A500F56685 /* TableViewCell.swift in Sources */,
 				FF48C05E235F3AC300D408F5 /* FavoritesViewController.swift in Sources */,
+				157D4C2A239684CB00278869 /* Favorites_Track+CoreDataClass.swift in Sources */,
 				FFAC3D1D2366FC1B00F56685 /* DetailViewController.swift in Sources */,
 				FFAC3D1F2367067000F56685 /* DetailViewTableViewCell.swift in Sources */,
 				FF40E35C235F1F9E00CDE31F /* audiotaste.xcdatamodeld in Sources */,
