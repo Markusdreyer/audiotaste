@@ -52,6 +52,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedTrack = trackData[indexPath.row]
+        self.insertFavorite(selectedTrack: selectedTrack)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func insertFavorite(selectedTrack: TrackData) {
         let alert = UIAlertController(title: "Add To Favorites", message: "Would you like to add \(selectedTrack.strTrack!) to favorites?", preferredStyle: .alert)
         let moc = (UIApplication.shared.delegate as?
                         AppDelegate)!.persistentContainer.viewContext
@@ -63,21 +69,20 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         favoriteTrack.strArtist = selectedTrack.strArtist
         favoriteTrack.intDuration = selectedTrack.intDuration
         
-        
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (UIAlertAction) in
             do {
                 try moc.save()
+                (UIApplication.shared.delegate as? AppDelegate)!.saveContext()
             } catch let error {
                 print(error)
             }
         }))
+               
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
             print("SHOULD NOT PERSIST")
         }))
-        
+               
         present(alert, animated: true)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
     }
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

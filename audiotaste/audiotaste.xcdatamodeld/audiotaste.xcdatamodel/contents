@@ -4,6 +4,13 @@
         <attribute name="intDuration" optional="YES" attributeType="String"/>
         <attribute name="strArtist" optional="YES" attributeType="String"/>
         <attribute name="strTrack" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="intDuration"/>
+                <constraint value="strArtist"/>
+                <constraint value="strTrack"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
         <element name="Favorites_Track" positionX="-54" positionY="-9" width="128" height="88"/>

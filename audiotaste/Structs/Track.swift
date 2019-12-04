@@ -12,7 +12,7 @@ struct Track: Codable {
     var track: [TrackData]!
 }
 
-struct TrackData: Codable {
+struct TrackData: Codable, Hashable {
     var strTrack : String!
     var intDuration : String!
     var strArtist: String!

@@ -17,8 +17,20 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(doSomething), for: .valueChanged)
+        tableView.refreshControl = refreshControl
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.fetchFavorites()
+
+    }
+    
+    @objc func doSomething(refreshControl: UIRefreshControl) {
+        self.fetchFavorites()
+        refreshControl.endRefreshing()
     }
     
     func fetchFavorites() {
@@ -27,6 +39,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         
         let fetchRequest = NSFetchRequest<Favorites_Track>(entityName: "Favorites_Track")
         let favoriteTracks = try! moc.fetch(fetchRequest)
+        trackData = []
         for favoriteTrack in favoriteTracks {
             var track = TrackData()
             track.strTrack = favoriteTrack.strTrack
@@ -34,11 +47,13 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             track.intDuration = favoriteTrack.intDuration
             trackData.append(track)
         }
+        
+        self.tableView.reloadData()
     }
 
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70 
+        return 70
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -63,3 +78,5 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
 }
+
+
