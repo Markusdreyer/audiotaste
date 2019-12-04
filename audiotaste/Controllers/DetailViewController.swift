@@ -73,15 +73,13 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             favoriteTrack.strArtist = selectedTrack.strArtist
             favoriteTrack.intDuration = selectedTrack.intDuration
             
-            if moc.hasChanges {
+            if moc.hasChanges { //to ensure that only unique values are inserted
                 do {
-                   
                     try moc.save()
                 } catch let error {
                     print(error)
                 }
             }
-            
         }))
                
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
