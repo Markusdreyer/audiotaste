@@ -24,6 +24,11 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.fetchFavorites()
     }
     
+    @IBAction func editButton(_ sender: UIBarButtonItem) {
+        self.tableView.isEditing = !self.tableView.isEditing
+        sender.title = (self.tableView.isEditing) ? "Done" : "Edit"
+    }
+    
     func fetchFavorites() {
         let moc = (UIApplication.shared.delegate as?
         AppDelegate)!.persistentContainer.viewContext
@@ -42,16 +47,28 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.reloadData()
     }
     
-    @IBAction func editButton(_ sender: UIBarButtonItem) {
-        self.tableView.isEditing = !self.tableView.isEditing
-        sender.title = (self.tableView.isEditing) ? "Done" : "Edit"
-    }
-    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let artistSection = Array(trackData.keys)[sourceIndexPath.section]
         let tmp = trackData[artistSection]![sourceIndexPath.item]
         trackData[artistSection]?.remove(at: sourceIndexPath.item)
-        trackData[artistSection]?.insert(tmp, at: destinationIndexPath.item)
+        
+        if(Array(trackData.keys)[destinationIndexPath.section] == artistSection) {
+            print("MOVE")
+            trackData[artistSection]?.insert(tmp, at: destinationIndexPath.item)
+        } else {
+            print("NO MOVE")
+            trackData[artistSection]?.insert(tmp, at: sourceIndexPath.item)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        let artistSection = Array(trackData.keys)[sourceIndexPath.section]
+        
+        if(Array(trackData.keys)[proposedDestinationIndexPath.section] == artistSection) {
+            return proposedDestinationIndexPath
+        } else {
+            return sourceIndexPath
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
