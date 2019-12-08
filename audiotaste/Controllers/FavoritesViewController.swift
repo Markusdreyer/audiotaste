@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     var trackData = [String: [TrackData]]()
+    var recommendations: [Info] = []
     var segueData: AlbumData!
+    var request = APIRequest()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,38 +44,60 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             track.strArtist = favoriteTrack.strArtist
             track.intDuration = favoriteTrack.intDuration
             trackData[track.strArtist, default: []].append(track)
-            
         }
+        
+        let favoriteArtists = Array(trackData.keys)
+        fetchRecommendations(artists: favoriteArtists)
+        
         self.tableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let artistSection = Array(trackData.keys)[sourceIndexPath.section]
-        let tmp = trackData[artistSection]![sourceIndexPath.item]
-        trackData[artistSection]?.remove(at: sourceIndexPath.item)
-        
-        if(Array(trackData.keys)[destinationIndexPath.section] == artistSection) {
-            print("MOVE")
-            trackData[artistSection]?.insert(tmp, at: destinationIndexPath.item)
-        } else {
-            print("NO MOVE")
-            trackData[artistSection]?.insert(tmp, at: sourceIndexPath.item)
+    func fetchRecommendations(artists: [String]) {
+        var queryString: String = ""
+        for artist in artists {
+            let parsedArtistName = artist.replacingOccurrences(of: " ", with: "+")
+            queryString.append(contentsOf: parsedArtistName + "%2C")
         }
+        
+        print(queryString)
+        
+        request.fetch(requestUrl: "https://tastedive.com/api/similar?q=\(queryString)&type=music", completion: { (response) in
+            
+            let decoder = JSONDecoder.init()
+            let recommendationResponse = try! decoder.decode(Recommendation.self, from: response!)
+            print("RESPONSE:: ", recommendationResponse)
+            for recommendation in recommendationResponse.similar.results {
+                self.recommendations.append(recommendation)
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.collectionView.reloadData()
+            }
+        })
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
     }
     
     func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         let artistSection = Array(trackData.keys)[sourceIndexPath.section]
+        let tmp = trackData[artistSection]![sourceIndexPath.item]
+        trackData[artistSection]?.remove(at: sourceIndexPath.item)
         
         if(Array(trackData.keys)[proposedDestinationIndexPath.section] == artistSection) {
+            trackData[artistSection]?.insert(tmp, at: proposedDestinationIndexPath.item)
             return proposedDestinationIndexPath
         } else {
+            trackData[artistSection]?.insert(tmp, at: sourceIndexPath.item)
             return sourceIndexPath
         }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == .delete) {
-             let artistSection = Array(trackData.keys)[indexPath.section]
+            let artistSection = Array(trackData.keys)[indexPath.section]
             trackData[artistSection]?.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -110,5 +134,23 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
              cell.runningTime.text = duration!.formatTime.minuteSeconds
         }
         return cell
+    }
+}
+
+extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return recommendations.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let recommendation = recommendations[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCollectionViewCell", for: indexPath) as! RecommendedCollectionViewCell
+              
+        cell.artistLabel.text = recommendation.name
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
