@@ -20,6 +20,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.collectionView.layer.borderColor = UIColor.gray.cgColor
+        self.collectionView.layer.borderWidth = 0.5
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,13 +61,9 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             queryString.append(contentsOf: parsedArtistName + "%2C")
         }
         
-        print(queryString)
-        
         request.fetch(requestUrl: "https://tastedive.com/api/similar?q=\(queryString)&type=music", completion: { (response) in
-            
             let decoder = JSONDecoder.init()
             let recommendationResponse = try! decoder.decode(Recommendation.self, from: response!)
-            print("RESPONSE:: ", recommendationResponse)
             for recommendation in recommendationResponse.similar.results {
                 self.recommendations.append(recommendation)
             }
