@@ -58,7 +58,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func insertFavorite(selectedTrack: TrackData) {
-        let alert = UIAlertController(title: "Add To Favorites", message: "Would you like to add \(selectedTrack.strTrack!) to favorites?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add To Favorites", message: "Would you like to add \"\(selectedTrack.strTrack!)\" to favorites?", preferredStyle: .alert)
         let moc = (UIApplication.shared.delegate as?
                         AppDelegate)!.persistentContainer.viewContext
         moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
@@ -83,7 +83,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         }))
                
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
-            print("SHOULD NOT PERSIST")
+            return
         }))
                
         present(alert, animated: true)

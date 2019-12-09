@@ -25,7 +25,13 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.fetchFavorites()
+        fetchFavorites()
+        if(trackData.count > 0) {
+            fetchRecommendations()
+            collectionView.isHidden = false
+        } else {
+            collectionView.isHidden = true
+        }
     }
     
     @IBAction func editButton(_ sender: UIBarButtonItem) {
@@ -47,32 +53,33 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             track.intDuration = favoriteTrack.intDuration
             trackData[track.strArtist, default: []].append(track)
         }
-        
-        let favoriteArtists = Array(trackData.keys)
-        fetchRecommendations(artists: favoriteArtists)
-        
         self.tableView.reloadData()
     }
     
-    func fetchRecommendations(artists: [String]) {
+    func fetchRecommendations() {
+        recommendations.removeAll()
+        let favoriteArtists = Array(trackData.keys)
+        print(favoriteArtists)
         var queryString: String = ""
-        for artist in artists {
-            let parsedArtistName = artist.replacingOccurrences(of: " ", with: "+")
+        for artist in favoriteArtists {
+            let ampersandParsed = artist.replacingOccurrences(of: "&", with: "%26")
+            let parsedArtistName = ampersandParsed.replacingOccurrences(of: " ", with: "+")
             queryString.append(contentsOf: parsedArtistName + "%2C")
         }
         
-        request.fetch(requestUrl: "https://tastedive.com/api/similar?q=\(queryString)&type=music", completion: { (response) in
+        request.fetch(requestUrl: "https://tastedive.com/api/similar?q=\(queryString)&type=music&k=350372-Audiotas-N1N3TG7M", completion: { (response) in
+            print("QUERY STRING:: ", queryString)
             let decoder = JSONDecoder.init()
             let recommendationResponse = try! decoder.decode(Recommendation.self, from: response!)
             for recommendation in recommendationResponse.similar.results {
                 self.recommendations.append(recommendation)
             }
-            
+            print("FETCHED RECOMMENDATIONS:: ", self.recommendations)
             DispatchQueue.main.async {
-                self.tableView.reloadData()
                 self.collectionView.reloadData()
             }
         })
+        collectionView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
@@ -94,11 +101,49 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if(editingStyle == .delete) {
-            let artistSection = Array(trackData.keys)[indexPath.section]
-            trackData[artistSection]?.remove(at: indexPath.item)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+        if(editingStyle != .delete) {
+            return
         }
+        
+        let artistSection = Array(self.trackData.keys)[indexPath.section]
+        let predicate = self.trackData[artistSection]![indexPath.item].strTrack
+        
+        let alert = UIAlertController(title: "Remove from Favorites", message: "Are you sure you want to delete \"\(predicate!)\" from favorites?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (UIAlertAction) in
+            let moc = (UIApplication.shared.delegate as?
+            AppDelegate)!.persistentContainer.viewContext
+              
+            let fetchRequest = NSFetchRequest<Favorites_Track>(entityName: "Favorites_Track")
+            fetchRequest.predicate = NSPredicate.init(format: "strTrack like %@", predicate!)
+            let result = try! moc.fetch(fetchRequest)
+            moc.delete(result.first!)
+            try! moc.save()
+            
+            if(self.trackData[artistSection]?.count == 1) {
+                self.trackData.removeValue(forKey: artistSection)
+                tableView.deleteSections(NSIndexSet.init(index: indexPath.section) as IndexSet, with: .automatic)
+            } else {
+                self.trackData[artistSection]?.remove(at: indexPath.item)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            
+            
+            print("TRACK DATA AFTER DELETION:: ", self.trackData)
+            DispatchQueue.main.async {
+                if(self.trackData.count > 0) {
+                    self.fetchRecommendations()
+                    self.collectionView.isHidden = false
+                } else {
+                    self.collectionView.isHidden = true
+                }
+            }
+        }))
+               
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
+            return
+        }))
+        
+        present(alert, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

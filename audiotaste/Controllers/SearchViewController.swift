@@ -72,8 +72,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     }
     
     func performSearch() {
+        let parsedInput = searchInput.text?.replacingOccurrences(of: " ", with: "+")
         albumData = []
-        request.fetch(requestUrl: "https://theaudiodb.com/api/v1/json/1/searchalbum.php?a=\(searchInput.text!)", completion: { (response) in
+        request.fetch(requestUrl: "https://theaudiodb.com/api/v1/json/1/searchalbum.php?a=\(parsedInput!)", completion: { (response) in
             let decoder = JSONDecoder.init()
             let albumSearchResponse = try! decoder.decode(Album.self, from: response!)
             if albumSearchResponse.album != nil {
