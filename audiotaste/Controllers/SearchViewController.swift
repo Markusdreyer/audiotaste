@@ -21,10 +21,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         searchInput.addTarget(self, action: #selector(SearchViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.searchInput.delegate = self
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        
-        view.addGestureRecognizer(tap)
     }
     
     @objc func dismissKeyboard() {
