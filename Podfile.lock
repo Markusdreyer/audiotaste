@@ -2,17 +2,21 @@ PODS:
   - Kingfisher (5.10.1):
     - Kingfisher/Core (= 5.10.1)
   - Kingfisher/Core (5.10.1)
+  - MarqueeLabel (4.0.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 5.10)
+  - MarqueeLabel
 
 SPEC REPOS:
   trunk:
     - Kingfisher
+    - MarqueeLabel
 
 SPEC CHECKSUMS:
   Kingfisher: eb36b7dfcc78d60877051c92c119a2865972961a
+  MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
 
-PODFILE CHECKSUM: 3a77884821f6e779463e3b08ee9cd3c972fda606
+PODFILE CHECKSUM: 0dc13fe42946f4766e256e68725da1c92c206d3d
 
 COCOAPODS: 1.8.4

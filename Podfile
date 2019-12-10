@@ -8,6 +8,8 @@ target 'audiotaste' do
   # Pods for audiotaste
 
   pod 'Kingfisher', '~> 5.10'
+  pod 'MarqueeLabel'
+
 
   target 'audiotasteTests' do
     inherit! :search_paths
