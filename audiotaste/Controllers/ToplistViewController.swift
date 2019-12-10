@@ -105,7 +105,6 @@ extension ToplistViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        
         let album = albumData[indexPath.row]
-        
         self.segueData = album
         performSegue(withIdentifier: "detailViewSegue", sender: self)
     }

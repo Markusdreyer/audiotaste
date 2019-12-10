@@ -18,6 +18,7 @@ struct Album: Codable {
 
 struct AlbumData: Codable {
     var idAlbum : String!
+    var intYearReleased: String?
     var strAlbumStripped : String!
     var strAlbumThumb : String?
     var strArtist : String!

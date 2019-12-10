@@ -16,6 +16,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var albumTitle: UILabel!
     @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var yearReleased: UILabel!
     var trackData: [TrackData] = []
     var albumData: AlbumData!
     var request = APIRequest()
@@ -30,6 +31,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         }
         albumTitle.text = albumData.strAlbumStripped
         artistName.text = albumData.strArtist
+        yearReleased.text = albumData.intYearReleased
     }
 
     func populateTrackData() {
