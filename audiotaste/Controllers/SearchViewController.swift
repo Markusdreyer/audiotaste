@@ -88,7 +88,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailViewController = segue.destination as! DetailViewController
-        print("segueData:: ", segueData!)
          detailViewController.albumData = segueData
     }
 }

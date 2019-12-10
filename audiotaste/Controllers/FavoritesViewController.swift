@@ -59,7 +59,6 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     func fetchRecommendations() {
         recommendations.removeAll()
         let favoriteArtists = Array(trackData.keys)
-        print(favoriteArtists)
         var queryString: String = ""
         for artist in favoriteArtists {
             let ampersandParsed = artist.replacingOccurrences(of: "&", with: "%26")
@@ -68,13 +67,11 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         }
         
         request.fetch(requestUrl: "https://tastedive.com/api/similar?q=\(queryString)&type=music&k=350372-Audiotas-N1N3TG7M", completion: { (response) in
-            print("QUERY STRING:: ", queryString)
             let decoder = JSONDecoder.init()
             let recommendationResponse = try! decoder.decode(Recommendation.self, from: response!)
             for recommendation in recommendationResponse.similar.results {
                 self.recommendations.append(recommendation)
             }
-            print("FETCHED RECOMMENDATIONS:: ", self.recommendations)
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -127,8 +124,6 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
             }
             
-            
-            print("TRACK DATA AFTER DELETION:: ", self.trackData)
             DispatchQueue.main.async {
                 if(self.trackData.count > 0) {
                     self.fetchRecommendations()

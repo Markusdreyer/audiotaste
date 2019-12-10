@@ -132,11 +132,15 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2yD-5i-r25" firstAttribute="leading" secondItem="IDk-jb-6nN" secondAttribute="leading" id="BKn-zv-Dlc"/>
                             <constraint firstItem="oGf-3Z-sNH" firstAttribute="leading" secondItem="IDk-jb-6nN" secondAttribute="leading" id="FyL-YX-Bkz"/>
+                            <constraint firstItem="2yD-5i-r25" firstAttribute="bottom" secondItem="IDk-jb-6nN" secondAttribute="bottom" id="PZn-Yw-8y5"/>
                             <constraint firstItem="2yD-5i-r25" firstAttribute="leading" secondItem="IDk-jb-6nN" secondAttribute="leading" id="Q0M-da-5SP"/>
                             <constraint firstItem="oGf-3Z-sNH" firstAttribute="top" secondItem="IDk-jb-6nN" secondAttribute="top" id="XAb-4V-uNZ"/>
                             <constraint firstItem="oGf-3Z-sNH" firstAttribute="bottom" secondItem="IDk-jb-6nN" secondAttribute="bottom" id="a1M-Q9-GxR"/>
                             <constraint firstItem="2yD-5i-r25" firstAttribute="bottom" secondItem="IDk-jb-6nN" secondAttribute="bottom" id="cep-hS-9nb"/>
+                            <constraint firstItem="2yD-5i-r25" firstAttribute="trailing" secondItem="IDk-jb-6nN" secondAttribute="trailing" id="czn-JI-4JC"/>
+                            <constraint firstItem="2yD-5i-r25" firstAttribute="top" secondItem="IDk-jb-6nN" secondAttribute="top" id="drZ-pV-hhA"/>
                             <constraint firstItem="oGf-3Z-sNH" firstAttribute="trailing" secondItem="IDk-jb-6nN" secondAttribute="trailing" id="lgn-Eb-VB6"/>
                             <constraint firstItem="2yD-5i-r25" firstAttribute="top" secondItem="IDk-jb-6nN" secondAttribute="top" id="nqh-6A-aZS"/>
                             <constraint firstItem="2yD-5i-r25" firstAttribute="trailing" secondItem="IDk-jb-6nN" secondAttribute="trailing" id="wHi-W3-Ga3"/>
