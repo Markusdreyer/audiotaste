@@ -118,10 +118,10 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             
             if(self.trackData[artistSection]?.count == 1) {
                 self.trackData.removeValue(forKey: artistSection)
-                tableView.deleteSections(NSIndexSet.init(index: indexPath.section) as IndexSet, with: .automatic)
+                tableView.deleteSections(NSIndexSet.init(index: indexPath.section) as IndexSet, with: .left)
             } else {
                 self.trackData[artistSection]?.remove(at: indexPath.item)
-                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.tableView.deleteRows(at: [indexPath], with: .left)
             }
             
             DispatchQueue.main.async {

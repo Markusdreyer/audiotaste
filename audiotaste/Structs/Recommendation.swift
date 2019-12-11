@@ -37,4 +37,5 @@ struct Info: Codable {
 
 enum TypeEnum: String, Codable {
     case music = "music"
+    case show = "show"
 }
